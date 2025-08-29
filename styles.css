@@ -1,0 +1,194 @@
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  line-height: 1.6;
+  color: #1f2937;
+  background: #f7fafc;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  height: 1px; width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap;
+}
+
+.site-header {
+  background: #111827;
+  color: #ffffff;
+  padding: 1rem 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+}
+
+.site-header h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.site-header h1 a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  gap: .75rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-list a {
+  display: inline-block;
+  padding: .5rem .75rem;
+  text-decoration: none;
+  color: #e5e7eb;
+  border-radius: .375rem;
+  transition: background-color .2s ease, color .2s ease, transform .15s ease;
+}
+
+.nav-list a:hover,
+.nav-list a:focus {
+  background: #374151;  
+  color: #ffffff;
+  transform: translateY(-1px); 
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1.25rem;
+}
+
+.blog .articles {
+  display: flex;                
+  gap: 1rem;
+  align-items: stretch;
+  flex-wrap: wrap;
+}
+
+.card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: .5rem;
+  padding: 1rem;
+  box-shadow: 0 1px 2px rgb(0 0 0 / 5%);
+}
+
+.contact {
+  margin-top: 1.5rem;
+}
+
+.contact-form {
+  display: flex;                 
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+  gap: .375rem;
+}
+
+label {
+  font-weight: 600;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  padding: .65rem .75rem;
+  border: 1px solid #cbd5e1;
+  border-radius: .5rem;
+  background: #ffffff;
+  transition: border-color .2s ease, background-color .2s ease, box-shadow .2s ease; /* transitions on focus/hover */
+}
+
+input[type="text"]:hover,
+input[type="email"]:hover,
+textarea:hover {
+  border-color: #94a3b8;
+  background-color: #f8fafc;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgb(37 99 235 / 20%);
+}
+
+button[type="submit"] {
+  padding: .7rem 1rem;
+  border: none;
+  border-radius: .5rem;
+  background: #2563eb;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color .2s ease, transform .15s ease;
+}
+
+button[type="submit"]:hover,
+button[type="submit"]:focus {
+  background: #1d4ed8;
+  transform: translateY(-1px);
+}
+
+.site-footer {
+  text-align: center;
+  padding: 1.25rem;
+  color: #6b7280;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0);  }
+}
+
+.fade-in {
+  animation: fadeIn .5s ease-out both;
+}
+
+@media (max-width: 767px) {
+  .blog .articles {
+    flex-direction: column;  
+  }
+  .card {
+    width: 100%;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .blog .articles {
+    flex-direction: row;
+  }
+  .card {
+    flex: 1 1 calc(50% - 1rem); 
+    min-width: 300px;
+  }
+}
+
+@media (min-width: 1025px) {
+  .blog .articles {
+    flex-direction: row;
+  }
+  .card {
+    flex: 1 1 calc(50% - 1rem); /* two across */
+  }
+}
